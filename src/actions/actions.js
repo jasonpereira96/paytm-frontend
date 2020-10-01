@@ -51,9 +51,10 @@ export const uploadSuccess = (fileId, fileName) => {
         name: fileName
     };
 }
-export const uploadFailure = () => {
+export const uploadFailure = (error) => {
     return {
-        type: UPLOAD_FAILURE
+        type: UPLOAD_FAILURE,
+        error
     };
 }
 export const back = () => {
