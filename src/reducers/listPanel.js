@@ -2,7 +2,7 @@ import { IMAGES_ADDED } from './../actions/actions';
 
 let initialState = {
     images: [],
-    loading: false
+    loading: true
 };
 
 const listPanel = (listPanel = initialState, action) => {
@@ -10,7 +10,7 @@ const listPanel = (listPanel = initialState, action) => {
         return {
             ...listPanel,
             images: listPanel.images.concat(action.images),
-            loading: true
+            loading: false
         };
     } else {
         return listPanel;
