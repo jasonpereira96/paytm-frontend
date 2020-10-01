@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import uploadPanel from './uploadPanel';
 import listPanel from './listPanel';
-import { UPLOAD_SUCCESS } from './../actions/actions';
 
 let initialState = {
     uploadPanel: {
@@ -13,7 +12,7 @@ let initialState = {
         images: []
     }
 };
-
+/*
 const uploadScreen = function (state = initialState, action) {
     if (action.type === UPLOAD_SUCCESS) {
         state.listPanel.images = state.listPanel.images.concat({
@@ -26,7 +25,7 @@ const uploadScreen = function (state = initialState, action) {
         listPanel: listPanel(state.listPanel, action)
     };
 }
-
+*/
 // export default uploadScreen;
 
 export default combineReducers({

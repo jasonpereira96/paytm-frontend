@@ -3,7 +3,7 @@ show a loading circle while loading the list of images
 show an image preview or atleast a file name when uploading the image or something
 show the name of the file that's currently selected
 Limiting accepted file types with accept
-
+show a loading gif before fetching the links
 
 
 backend

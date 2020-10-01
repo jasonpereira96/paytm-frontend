@@ -26,3 +26,28 @@ html, body {
 #root {
     height: 100%;
 }
+
+#back-div {
+    text-align: center;
+}
+
+#back-div > button {
+    margin: 2em;
+}
+
+#display-screen {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+.image-row {
+    display: flex;
+    flex: 1;
+}
+.image-holder {
+    flex: 1;
+    width: 100%;
+}
+.image {
+
+}

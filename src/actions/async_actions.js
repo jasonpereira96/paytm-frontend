@@ -1,5 +1,6 @@
 import { startUpload, uploadSuccess, uploadFailure, imagesAdded } from './actions';
-import { uploadFileToServer } from './../data/data';
+import { requestLinksStarted, receivedLinks, receivedLinksError } from './actions';
+import { getLinks, uploadFileToServer } from './../data/data';
 
 export function uploadFile(file) {
     return async function (dispatch) {
@@ -23,3 +24,21 @@ export function uploadFile(file) {
         }
     }
 };
+
+export function requestLinks(id) {
+    return async function (dispatch) {
+        dispatch(requestLinksStarted(id));
+        try {
+            let response = await getLinks(id);
+            let data = response.data;
+            console.log(data);
+            if (!data.error) {
+                dispatch(receivedLinks(data));
+            } else {
+                dispatch(receivedLinksError());
+            }
+        } catch (e) {
+            dispatch(receivedLinksError());
+        }
+    }
+}

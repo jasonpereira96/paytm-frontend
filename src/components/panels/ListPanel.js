@@ -5,18 +5,26 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ImageIcon from '@material-ui/icons/Image';
-import { imagesAdded } from './../../actions/actions';
+import { imagesAdded, imageTitleClick } from './../../actions/actions';
+
 function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
 }
 
 class ListPanel extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.onImageTitleClick = this.onImageTitleClick.bind(this);
+    }
     render() {
+        let { onImageTitleClick } = this;
+
         return (
             <div /*className={classes.root}*/>
                 <List component="nav" aria-label="main mailbox folders">
                     {this.props.images.map(image => {
-                        return (<ListItem button key={image.id}>
+                        return (<ListItem button key={image.id} onClick={() => onImageTitleClick(image.id)}>
                             <ListItemIcon>
                                 <ImageIcon />
                             </ListItemIcon>
@@ -34,11 +42,18 @@ class ListPanel extends React.Component {
         );
     }
     componentDidMount() {
-        fetch('http://localhost:5000/images')
-            .then(response => response.json())
-            .then(json => {
-                this.props.imagesAdded(json.images);
-            });
+        let { images } = this.props;
+        if (images.length === 0) {
+            fetch('http://localhost:5000/images')
+                .then(response => response.json())
+                .then(json => {
+                    this.props.imagesAdded(json.images);
+                });
+        }
+    }
+    onImageTitleClick(id) {
+        console.log(`image id: ${id}`);
+        this.props.imageTitleClick(id);
     }
 }
 const mapStateToProps = state => {
@@ -49,7 +64,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-        imagesAdded: images => dispatch(imagesAdded(images))
+        imagesAdded: images => dispatch(imagesAdded(images)),
+        imageTitleClick: id => dispatch(imageTitleClick(id))
     };
 };
 

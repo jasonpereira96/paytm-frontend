@@ -6,7 +6,12 @@ export const UPLOAD_FILE = 'UPLOAD_FILE';
 export const START_UPLOAD = 'START_UPLOAD';
 export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS';
 export const UPLOAD_FAILURE = 'UPLOAD_FAILURE';
-
+export const BACK = 'BACK';
+export const IMAGE_TITLE_CLICK = 'IMAGE_TITLE_CLICK';
+export const REQUEST_LINKS = 'REQUEST_LINKS';
+export const REQUEST_LINKS_STARTED = 'REQUEST_LINKS_STARTED';
+export const RECEIVED_LINKS = 'RECEIVED_LINKS';
+export const RECEIVED_LINKS_ERROR = 'RECEIVED_LINKS_ERROR';
 
 
 export const imagesAdded = images => {
@@ -49,5 +54,32 @@ export const uploadSuccess = (fileId, fileName) => {
 export const uploadFailure = () => {
     return {
         type: UPLOAD_FAILURE
+    };
+}
+export const back = () => {
+    return {
+        type: BACK
+    };
+}
+export const imageTitleClick = id => {
+    return {
+        type: IMAGE_TITLE_CLICK,
+        id
+    };
+}
+export const requestLinksStarted = () => {
+    return {
+        type: REQUEST_LINKS_STARTED
+    };
+}
+export const receivedLinks = record => {
+    return {
+        type: RECEIVED_LINKS, 
+        record
+    };
+} 
+export const receivedLinksError = () => {
+    return {
+        type: RECEIVED_LINKS_ERROR
     };
 }
