@@ -1,8 +1,10 @@
 import { IMAGE_TITLE_CLICK, RECEIVED_LINKS } from './../actions/actions';
+
 let initialState = {
     id: null,
     record: null
 };
+
 const displayScreen = (displayScreen = initialState, action) => {
     switch (action.type) {
         case IMAGE_TITLE_CLICK: {

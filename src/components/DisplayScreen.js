@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './../components/Header';
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import { back } from './../actions/actions';
 import { connect } from 'react-redux';
 import { requestLinks } from '../actions/async_actions';
@@ -13,7 +13,7 @@ class DisplayScreen extends React.Component {
         this.onBack = this.onBack.bind(this);
     }
     render() {
-        let { links, record } = this.props;
+        let { record } = this.props;
         let { onBack } = this;
         let src = `${BASE_URL}/static/loading.gif`;
         let sources;
@@ -35,22 +35,23 @@ class DisplayScreen extends React.Component {
                 </Button>
             </div>
             <div id='display-screen'>
+                <Typography variant='h5'>Horizontal</Typography>
                 <div className='image-row'>
-                    <div className='image-holder'>
-                        <img src={sources[0]} className='image' />
-                    </div>
-                    <div className='image-holder'>
-                        <img src={sources[1]} className='image' />
-                    </div>
+                    <img src={sources[0]} className='image' />
                 </div>
+                <Typography variant='h5'>Vertical</Typography>
                 <div className='image-row'>
-                    <div className='image-holder'>
-                        <img src={sources[2]} className='image' />
-                    </div>
-                    <div className='image-holder'>
-                        <img src={sources[3]} className='image' />
-                    </div>
+                    <img src={sources[1]} className='image' />
                 </div>
+                <Typography variant='h5'>Horizontal Small</Typography>
+                <div className='image-row'>
+                    <img src={sources[2]} className='image' />
+                </div>
+                <Typography variant='h5'>Gallery</Typography>
+                <div className='image-row'>
+                    <img src={sources[3]} className='image' />
+                </div>
+                
             </div>
         </>);
     }
@@ -75,24 +76,5 @@ const mapDispatchToProps = dispatch => {
         requestLinks: id => dispatch(requestLinks(id))
     };
 };
-/*
-const mapDispatchToProps = dispatch => {
-    return {
-        fileChanged: file => dispatch(fileChanged(file)),
-        errorOccured: error => dispatch(errorOccured(error)),
-        snackbarClose: () => dispatch(snackbarClose()),
-        uploadFile: file => dispatch(uploadFile(file))
-    };
-};
-const mapStateToProps = state => {
-    let { file, error, uploading } = state.uploadScreen.uploadPanel;
-    let fileName = file ? file.name : null;
-    return {
-        fileName,
-        error,
-        uploading
-    };
-};*/
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayScreen);

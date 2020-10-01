@@ -43,7 +43,7 @@ const uploadPanel = (uploadPanel = initialState, action) => {
         case UPLOAD_FAILURE: {
             return {
                 ...uploadPanel,
-                error: "File wasn't uploaded",
+                error: action.error || "File wasn't uploaded",
                 uploading: false
             };
         }

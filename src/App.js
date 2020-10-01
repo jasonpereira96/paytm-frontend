@@ -4,20 +4,16 @@ import UploadScreen from './components/UploadScreen';
 import DisplayScreen from './components/DisplayScreen';
 import { connect } from 'react-redux';
 
-// let uploadScreen = <UploadScreen></UploadScreen>;
-// let displayScreen = <DisplayScreen></DisplayScreen>;
 
 function App(props) {
     let { screen } = props;
     if (screen === 'upload') {
         return <>
             <UploadScreen></UploadScreen>
-            {/* {uploadScreen} */}
         </>;
     } else {
         return <>
             <DisplayScreen></DisplayScreen>
-            {/* {displayScreen} */}
         </>;
     }
 }

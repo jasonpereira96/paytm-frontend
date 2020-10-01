@@ -1,6 +1,6 @@
 import { BACK, IMAGE_TITLE_CLICK } from './../actions/actions';
 
-let initialState = 'display';
+let initialState = 'upload';
 
 const screen = (screen = initialState, action) => {
     switch (action.type) {

@@ -5,11 +5,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ImageIcon from '@material-ui/icons/Image';
-import { imagesAdded, imageTitleClick } from './../../actions/actions';
-
-function ListItemLink(props) {
-    return <ListItem button component="a" {...props} />;
-}
+import { errorOccured, imagesAdded, imageTitleClick, snackbarClose } from './../../actions/actions';
+import { CircularProgress } from '@material-ui/core';
+import { SNACKBAR_CLOSE_TIME } from './../../constants/constants';
 
 class ListPanel extends React.Component {
     constructor(props) {
@@ -19,36 +17,40 @@ class ListPanel extends React.Component {
     }
     render() {
         let { onImageTitleClick } = this;
+        let { images } = this.props;
+
+        if (images.length === 0) {
+            return <div id='cp-div'><CircularProgress /></div>;
+        }
 
         return (
-            <div /*className={classes.root}*/>
+            <div>
                 <List component="nav" aria-label="main mailbox folders">
-                    {this.props.images.map(image => {
+                    {images.map(image => {
                         return (<ListItem button key={image.id} onClick={() => onImageTitleClick(image.id)}>
                             <ListItemIcon>
                                 <ImageIcon />
                             </ListItemIcon>
-                            <ListItemText primary={`Image-${image.id}`} />
+                            <ListItemText primary={`${image.name ? image.name : 'Image-' + image.id}`} />
                         </ListItem>);
                     })}
-                    <ListItem button key={99999}>
-                        <ListItemIcon>
-                            <ImageIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Image-1" />
-                    </ListItem>
                 </List>
             </div>
         );
     }
     componentDidMount() {
-        let { images } = this.props;
+        let { images, errorOccured, snackbarClose } = this.props;
         if (images.length === 0) {
             fetch('http://localhost:5000/images')
                 .then(response => response.json())
                 .then(json => {
                     this.props.imagesAdded(json.images);
-                });
+                })
+                .catch(e => {
+                    console.log(e);
+                    errorOccured('Failed to fetch images');
+                    setTimeout(() => snackbarClose(), SNACKBAR_CLOSE_TIME);
+                })
         }
     }
     onImageTitleClick(id) {
@@ -65,9 +67,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         imagesAdded: images => dispatch(imagesAdded(images)),
-        imageTitleClick: id => dispatch(imageTitleClick(id))
+        imageTitleClick: id => dispatch(imageTitleClick(id)),
+        errorOccured: error => dispatch(errorOccured(error)),
+        snackbarClose: () => dispatch(snackbarClose())
     };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListPanel);
-// export default ListPanel;

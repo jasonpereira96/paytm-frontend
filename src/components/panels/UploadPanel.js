@@ -27,9 +27,9 @@ class UploadPanel extends React.Component {
                 <br />
                 <br />
                 <Fab variant="extended" color="primary" aria-label="add" component='label'>
-                    <AddIcon /*className={classes.extendedIcon}*/ />
+                    <AddIcon/>
                     Choose File
-                    <input type="file" style={{ display: "none" }} id='file-input' onChange={this.onFileChange} />
+                    <input type="file" style={{ display: "none" }} id='file-input' onChange={this.onFileChange} accept='image/*'/>
                 </Fab>
                 <Typography variant="h5" component="h5">
                     {this.props.fileName}
@@ -48,7 +48,6 @@ class UploadPanel extends React.Component {
                 <br />
                 <br />
                 {this.props.uploading ? <CircularProgress/> : <br/>}
-                {/* <CircularProgress hidden={true} /> */}
                 <ErrorSnackbar open={error !== null} message={error} />
             </>
         );

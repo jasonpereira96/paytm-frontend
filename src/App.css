@@ -37,17 +37,14 @@ html, body {
 
 #display-screen {
     width: 100%;
-    display: flex;
-    flex-flow: column;
+    text-align: center;
 }
 .image-row {
-    display: flex;
-    flex: 1;
+    padding-bottom: 5em;
+    text-align: center;
 }
-.image-holder {
-    flex: 1;
-    width: 100%;
-}
-.image {
 
+#cp-div {
+    text-align: center;
+    padding-top: 50%;
 }

@@ -15,12 +15,10 @@ export function uploadFile(file) {
                     id: data.id, name: data.name
                 }]));
             } else {
-                dispatch(uploadFailure());
-                console.log('An error occured');
+                dispatch(uploadFailure(data.error));
             }
         } catch (e) {
-            console.log(e);
-            dispatch(uploadFailure());
+            dispatch(uploadFailure(e));
         }
     }
 };

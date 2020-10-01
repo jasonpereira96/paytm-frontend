@@ -1,4 +1,4 @@
-import { MAX_FILE_SIZE, types } from './../constants/constants';
+import { MAX_FILE_SIZE, ALLOWED_FILE_HEIGHT, ALLOWED_FILE_WIDTH } from './../constants/constants';
 
 export function checkFile(fileInput) {
     return new Promise(function (resolve, reject) {
@@ -11,11 +11,6 @@ export function checkFile(fileInput) {
         const file = fileInput.files[0];
         const fileSize = Math.round(file.size / 1024);
 
-        if (!types.includes(file.type)) {
-            resolve({
-                ok: false, reason: 'File type not allowed'
-            });
-        }
         if (fileSize > MAX_FILE_SIZE) {
             resolve({
                 ok: false, reason: 'File too big'
@@ -42,15 +37,13 @@ export function checkFileDimensions(fileInput) {
             var image = new Image();
             image.src = reader.result;
             image.onload = function () {
-                console.log(image.height);
-                console.log(image.width);
-                if (image.height === 1024 && image.width === 1024) {
+                if (image.height === ALLOWED_FILE_WIDTH && image.width === ALLOWED_FILE_HEIGHT) {
                     resolve({
                         ok: true
                     });
                 } else {
                     resolve({
-                        ok: false, reason: 'incorrect dimensions'
+                        ok: false, reason: `Incorrect dimensions. Should be ${ALLOWED_FILE_WIDTH} x ${ALLOWED_FILE_HEIGHT}`
                     });
                 }
             }
