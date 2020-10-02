@@ -33,7 +33,7 @@ class UploadPanel extends React.Component {
                         {this.props.fileName}
                     </Typography>
                 </div>
-                <div className='upload-panel-section'>
+                <div className='upload-panel-section' id='upload-button-section'>
                     <Button variant="contained" color="primary" onClick={this.onUploadButtonClick}>
                         Upload
                 </Button>
