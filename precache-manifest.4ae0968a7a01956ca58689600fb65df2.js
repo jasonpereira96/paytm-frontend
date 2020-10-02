@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d891a5f372014f4246552e50143c94e0",
+    "revision": "f3c3de6709c50fabd6aa4087601bc20a",
     "url": "/paytm-frontend/index.html"
   },
   {
-    "revision": "517957d791ccc835c1f0",
-    "url": "/paytm-frontend/static/css/main.d948dd78.chunk.css"
+    "revision": "e9aaf725f0e61e14c488",
+    "url": "/paytm-frontend/static/css/main.e33d810c.chunk.css"
   },
   {
     "revision": "78dbb27daa35e63b2ede",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/paytm-frontend/static/js/2.01be8ea7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "517957d791ccc835c1f0",
+    "revision": "e9aaf725f0e61e14c488",
     "url": "/paytm-frontend/static/js/main.72d8c28a.chunk.js"
   },
   {
