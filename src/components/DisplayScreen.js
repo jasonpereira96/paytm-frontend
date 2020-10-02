@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './../components/Header';
-import { Button, Typography } from '@material-ui/core';
+import { Button, CircularProgress, Typography } from '@material-ui/core';
 import { back } from './../actions/actions';
 import { connect } from 'react-redux';
 import { requestLinks } from '../actions/async_actions';
@@ -24,9 +24,7 @@ class DisplayScreen extends React.Component {
                 record.horizontal_small,
                 record.gallery,
             ];
-        } else {
-            sources = [src, src, src, src];
-        }
+        } 
         return (<>
             <Header></Header>
             <div id='back-div'>
@@ -37,21 +35,29 @@ class DisplayScreen extends React.Component {
             <div id='display-screen'>
                 <Typography variant='h5'>Horizontal</Typography>
                 <div className='image-row'>
-                    <img src={sources[0]} className='image' />
+                    {record ? 
+                    <img src={sources[0]} className='image' />:
+                    <CircularProgress></CircularProgress> }
                 </div>
                 <Typography variant='h5'>Vertical</Typography>
                 <div className='image-row'>
-                    <img src={sources[1]} className='image' />
+                {record ? 
+                    <img src={sources[1]} className='image' />:
+                    <CircularProgress></CircularProgress> }
                 </div>
                 <Typography variant='h5'>Horizontal Small</Typography>
                 <div className='image-row'>
-                    <img src={sources[2]} className='image' />
+                {record ? 
+                    <img src={sources[2]} className='image' />:
+                    <CircularProgress></CircularProgress> }
                 </div>
                 <Typography variant='h5'>Gallery</Typography>
                 <div className='image-row'>
-                    <img src={sources[3]} className='image' />
+                {record ? 
+                    <img src={sources[3]} className='image' />:
+                    <CircularProgress></CircularProgress> }
                 </div>
-                
+
             </div>
         </>);
     }
