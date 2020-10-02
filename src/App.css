@@ -57,6 +57,6 @@ html, body {
 #upload-panel:nth-child(1) {
     padding-top: 10%;
 }
-#upload-panel:nth-child(2) {
-    flex: 0.7;
+#loading-section {
+    flex: 0.3;
 }
