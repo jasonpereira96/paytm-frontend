@@ -1,6 +1,7 @@
-import { startUpload, uploadSuccess, uploadFailure, imagesAdded } from './actions';
+import { startUpload, uploadSuccess, uploadFailure as _uploadFailure, imagesAdded, snackbarClose } from './actions';
 import { requestLinksStarted, receivedLinks, receivedLinksError } from './actions';
 import { getLinks, uploadFileToServer } from './../data/data';
+import { SNACKBAR_CLOSE_TIME } from '../constants/constants';
 
 export function uploadFile(file) {
     return async function (dispatch) {
@@ -38,5 +39,14 @@ export function requestLinks(id) {
         } catch (e) {
             dispatch(receivedLinksError());
         }
+    }
+}
+
+export function uploadFailure(error) {
+    return function (dispatch) {
+        dispatch(_uploadFailure(error)); //synchronous action
+        setTimeout(() => {
+            dispatch(snackbarClose());
+        }, SNACKBAR_CLOSE_TIME);
     }
 }

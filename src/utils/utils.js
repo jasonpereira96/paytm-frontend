@@ -4,7 +4,7 @@ export function checkFile(fileInput) {
     return new Promise(function (resolve, reject) {
         if (fileInput.files.length === 0) {
             resolve({
-                ok: false, reason: 'No file uploaded'
+                ok: false, reason: 'No file selected'
             });
         }
 

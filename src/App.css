@@ -11,6 +11,8 @@ html, body {
     flex: 1;
     background-color: #cfe8fc;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #list-panel {
@@ -47,4 +49,14 @@ html, body {
 #cp-div {
     text-align: center;
     padding-top: 50%;
+}
+
+.upload-panel-section {
+    flex: 1;
+}
+#upload-panel:nth-child(1) {
+    padding-top: 10%;
+}
+#upload-panel:nth-child(2) {
+    flex: 0.7;
 }

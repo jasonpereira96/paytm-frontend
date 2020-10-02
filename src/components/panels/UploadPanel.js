@@ -21,39 +21,31 @@ class UploadPanel extends React.Component {
         let { error } = this.props;
         return (
             <>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <Fab variant="extended" color="primary" aria-label="add" component='label'>
-                    <AddIcon/>
+                <div className='upload-panel-section'>
+                    <Fab variant="extended" color="primary" aria-label="add" component='label'>
+                        <AddIcon />
                     Choose File
-                    <input type="file" style={{ display: "none" }} id='file-input' onChange={this.onFileChange} accept='image/*'/>
-                </Fab>
-                <Typography variant="h5" component="h5">
-                    {this.props.fileName}
-                </Typography>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <Button variant="contained" color="primary" onClick={this.onUploadButtonClick}>
-                    Upload
+                    <input type="file" style={{ display: "none" }} id='file-input' onChange={this.onFileChange} accept='image/*' />
+                    </Fab>
+                    <br/>
+                    <br/>
+                    <Typography variant="h5" component="h5">
+                        {this.props.fileName}
+                    </Typography>
+                </div>
+                <div className='upload-panel-section'>
+                    <Button variant="contained" color="primary" onClick={this.onUploadButtonClick}>
+                        Upload
                 </Button>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                {this.props.uploading ? <CircularProgress/> : <br/>}
+                </div>
+                <div className= 'upload-panel-section' id='loading-section'>
+                    {this.props.uploading ? <><CircularProgress /><br />Loading...</> : <br />}
+                </div>
                 <ErrorSnackbar open={error !== null} message={error} />
             </>
         );
     }
     async onUploadButtonClick() {
-        console.log('sds');
         const fileInput = document.getElementById('file-input');
         let { errorOccured, snackbarClose, uploadFile } = this.props;
         let { ok, reason } = await checkFile(fileInput);

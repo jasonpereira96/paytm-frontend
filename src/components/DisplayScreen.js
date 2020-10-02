@@ -56,7 +56,6 @@ class DisplayScreen extends React.Component {
         </>);
     }
     onBack() {
-        console.log('back clicked');
         this.props.back();
     }
     componentDidMount() {

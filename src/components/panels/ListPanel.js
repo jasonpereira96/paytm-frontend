@@ -50,7 +50,7 @@ class ListPanel extends React.Component {
                     console.log(e);
                     errorOccured('Failed to fetch images');
                     setTimeout(() => snackbarClose(), SNACKBAR_CLOSE_TIME);
-                })
+                });
         }
     }
     onImageTitleClick(id) {
