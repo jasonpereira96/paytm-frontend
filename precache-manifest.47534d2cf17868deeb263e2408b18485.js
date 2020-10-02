@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f674d4c007164e9a52f5116a617a0f62",
+    "revision": "d891a5f372014f4246552e50143c94e0",
     "url": "/paytm-frontend/index.html"
   },
   {
