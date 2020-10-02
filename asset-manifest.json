@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/paytm-frontend/static/css/main.d948dd78.chunk.css",
+    "main.js": "/paytm-frontend/static/js/main.423e0568.chunk.js",
+    "main.js.map": "/paytm-frontend/static/js/main.423e0568.chunk.js.map",
+    "runtime-main.js": "/paytm-frontend/static/js/runtime-main.868235de.js",
+    "runtime-main.js.map": "/paytm-frontend/static/js/runtime-main.868235de.js.map",
+    "static/js/2.01be8ea7.chunk.js": "/paytm-frontend/static/js/2.01be8ea7.chunk.js",
+    "static/js/2.01be8ea7.chunk.js.map": "/paytm-frontend/static/js/2.01be8ea7.chunk.js.map",
+    "index.html": "/paytm-frontend/index.html",
+    "precache-manifest.7a8424f74194d57ce5c43852b03a1957.js": "/paytm-frontend/precache-manifest.7a8424f74194d57ce5c43852b03a1957.js",
+    "service-worker.js": "/paytm-frontend/service-worker.js",
+    "static/css/main.d948dd78.chunk.css.map": "/paytm-frontend/static/css/main.d948dd78.chunk.css.map",
+    "static/js/2.01be8ea7.chunk.js.LICENSE.txt": "/paytm-frontend/static/js/2.01be8ea7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.868235de.js",
+    "static/js/2.01be8ea7.chunk.js",
+    "static/css/main.d948dd78.chunk.css",
+    "static/js/main.423e0568.chunk.js"
+  ]
+}
