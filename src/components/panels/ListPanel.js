@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ImageIcon from '@material-ui/icons/Image';
 import { errorOccured, imagesAdded, imageTitleClick, snackbarClose } from './../../actions/actions';
 import { CircularProgress } from '@material-ui/core';
-import { SNACKBAR_CLOSE_TIME } from './../../constants/constants';
+import { SNACKBAR_CLOSE_TIME, BASE_URL } from './../../constants/constants';
 
 class ListPanel extends React.Component {
     constructor(props) {
@@ -41,7 +41,7 @@ class ListPanel extends React.Component {
     componentDidMount() {
         let { images, errorOccured, snackbarClose } = this.props;
         if (images.length === 0) {
-            fetch('http://localhost:5000/images')
+            fetch(`${BASE_URL}/images`)
                 .then(response => response.json())
                 .then(json => {
                     this.props.imagesAdded(json.images);
