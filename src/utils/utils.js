@@ -37,7 +37,7 @@ export function checkFileDimensions(fileInput) {
             var image = new Image();
             image.src = reader.result;
             image.onload = function () {
-                if (image.height === ALLOWED_FILE_WIDTH && image.width === ALLOWED_FILE_HEIGHT) {
+                if (image.height === ALLOWED_FILE_HEIGHT && image.width === ALLOWED_FILE_WIDTH) {
                     resolve({
                         ok: true
                     });
