@@ -48,13 +48,12 @@ class ListPanel extends React.Component {
                 })
                 .catch(e => {
                     console.log(e);
-                    errorOccured('Failed to fetch images');
+                    errorOccured('Connection timed out. Please refresh the page.');
                     setTimeout(() => snackbarClose(), SNACKBAR_CLOSE_TIME);
                 });
         }
     }
     onImageTitleClick(id) {
-        console.log(`image id: ${id}`);
         this.props.imageTitleClick(id);
     }
 }
